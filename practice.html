@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Room</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+ <!-- Navbar -->
+ <nav class="navbar" style="background-color: #dba3c8; height: 60px;">
+  <div class="container-fluid" style="padding: 0 20px;">
+    <a class="navbar-brand" href="#">
+      <img src="D:\Smester 5\Web\project\Black_Personal_Name_Initials_Typography_Logo_Design_1-removebg-preview (1).png" 
+           alt="Logo" style="height: 70px; width: auto; margin-top: -10px;"> <!-- Increased logo height and adjusted margin -->
+    </a>
+
+    <div class="d-flex ">
+      <a href="#" class="btn mb-4" style="color: #fff; background-color: #331c2a; border-color: #331c2a; margin-right: 8px; font-size: 0.9rem;">Sign Up</a>
+      <a href="#" class="btn mb-4" style="color: #fff; background-color: #331c2a; border-color: #331c2a; font-size: 0.9rem;">Log In</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-3" style="max-width: 1200px; display: flex; align-items: center; justify-content: space-between;">
+  <!-- Left Image Section -->
+  <div style="flex: 1; margin-right: 20px; text-align: center;">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTr49PytbAKZs_hrqEyDGcViUv_kvN4FQeMw&s" 
+         alt="Room Image" style="width: 100%; height: auto; border-radius: 8px; margin-top: -220px;">
+    <!-- Room Description Below Image on Left Side -->
+    <div style="font-size: 1rem; margin-top: 10px; color: #6c757d; text-align: left; margin-left: 20px;">
+      A beautiful and cozy room with a breathtaking view of the mountains, perfect for a peaceful stay in Murree.
+    </div>
+    <!-- Additional Room Description -->
+    <div style="font-size: 1rem; margin-top: 10px; color: #6c757d; text-align: left; margin-left: 20px;">
+      The room is well-furnished with modern amenities, including a comfy bed, a TV, and a minibar. Ideal for those looking to escape the hustle and bustle of city life and enjoy a serene mountain retreat.
+    </div>
+  </div>
+
+  <!-- Right Form Section -->
+  <div style="flex: 1; background-color: #ffffff; padding: 20px; border-radius: 8px;">
+    <h2 class="mb-3" style="text-align: center;">Book a Room</h2>
+
+    <form id="bookingForm" onsubmit="return validateForm()">
+      <!-- Name -->
+      <div class="form-row">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="First Name" style="margin-bottom: 10px;" required>
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Last Name" style="margin-bottom: 10px;" required>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email" style="font-size: 12px; color: #6c757d;">E-mail</label>
+        <input type="email" class="form-control" id="email" placeholder="ex: myname@example.com" style="margin-bottom: 10px;" required>
+        <small class="form-text text-muted">example@example.com</small>
+      </div>
+
+      <!-- Phone Number -->
+      <div class="form-group">
+        <label for="phone" style="font-size: 12px; color: #6c757d;">Phone Number</label>
+        <input type="text" class="form-control" id="phone" placeholder="(000) 000-0000" style="margin-bottom: 10px;" required oninput="formatPhoneNumber(this)">
+      </div>
+
+      <!-- Date From -->
+      <div class="form-group">
+        <label for="dateFrom" style="font-size: 12px; color: #6c757d;">Date From</label>
+        <div class="input-group">
+          <input type="date" class="form-control" id="dateFrom" style="margin-bottom: 10px;" required>
+          <input type="time" class="form-control" style="max-width: 100px; margin-left: 5px;">
+          <select class="form-control" style="max-width: 80px; margin-left: 5px;">
+            <option>AM</option>
+            <option>PM</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Date To -->
+      <div class="form-group">
+        <label for="dateTo" style="font-size: 12px; color: #6c757d;">Date To</label>
+        <div class="input-group">
+          <input type="date" class="form-control" id="dateTo" style="margin-bottom: 10px;" required>
+          <input type="time" class="form-control" style="max-width: 100px; margin-left: 5px;">
+          <select class="form-control" style="max-width: 80px; margin-left: 5px;">
+            <option>AM</option>
+            <option>PM</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- No. of People -->
+      <div class="form-group">
+        <label for="numPeople" style="font-size: 12px; color: #6c757d;">No. of People</label>
+        <input type="number" class="form-control" id="numPeople" placeholder="" style="margin-bottom: 10px;" required>
+      </div>
+
+      <!-- Comments -->
+      <div class="form-group">
+        <label for="comments" style="font-size: 12px; color: #6c757d;">Comments</label>
+        <textarea class="form-control" id="comments" rows="3" style="margin-bottom: 20px;"></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-block" style="background-color: #91547c; color: #fff; height: 45px; font-weight: bold;">Book Now</button>
+    </form>
+  </div>
+</div>
+
+<!-- Footer Section -->
+<footer style="background-color: #331c2a; color: #fff; padding: 20px 0; margin-top: 50px; width: 100%;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 15px;">
+    <div class="row">
+      <!-- Logo and Description Section -->
+      <div class="col-md-4">
+        <h5 style="font-weight: bold; color: #FFFF;" class="mb-2">SERENA VISTA INN</h5>
+        <p>At Serena Vista Inn, we combine elegance with exceptional service to ensure a memorable stay. Enjoy personalized experience and modern comforts in the heart of Murree.</p>
+      </div>
+
+      <!-- Quick Links Section -->
+      <div class="col-md-2">
+        <h5 style="font-weight: bold;" class="mb-2">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" style="color: #fff; text-decoration: none;">Home</a></li>
+          <li><a href="#" style="color: #fff; text-decoration: none;">Rooms</a></li>
+          <li><a href="#" style="color: #fff; text-decoration: none;">Blogs</a></li>
+          <li><a href="#" style="color: #fff; text-decoration: none;">FAQs</a></li>
+          <li><a href="#" style="color: #fff; text-decoration: none;">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Other Links Section -->
+      <div class="col-md-2">
+        <h5 style="font-weight: bold;" class="mb-2">Other Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" style="color: #fff; text-decoration: none;">About Hotel</a></li>
+          <li><a href="#" style="color: #fff; text-decoration: none;">Policies</a></li>
+          <li><a href="#" style="color: #fff; text-decoration: none;">Terms & Conditions</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info Section -->
+      <div class="col-md-4">
+        <h5 style="font-weight: bold;" class="mb-2">Contact Us</h5>
+        <p><i class="fas fa-map-marker-alt"></i> 123 Serena Street, Murree, Pakistan</p>
+        <p><i class="fas fa-phone"></i> (+92) 300 1234567</p>
+        <p><i class="fas fa-envelope"></i> info@serenavista.com</p>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top: 30px;">
+      <div class="col text-center">
+        <p>&copy; 2024 Serena Vista Inn. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
